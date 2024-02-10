@@ -18,7 +18,7 @@
     "dev": "nodemon",
     "build": "swc ./src -d build",
     "build:watch": "swc ./src -d build -w",
-    "type-chec": "tsc --noEmit",
+    "type-check": "tsc --noEmit",
     "release": "semantic-release",
     "bundle": "unbuild",
     "test": "jest --passWithNoTests",
@@ -28,6 +28,9 @@
   },
   "author": "Julien Van Beveren",
   "license": "ISC",
+  "dependencies": {
+    "redis": "^4.6.13"
+  },
   "devDependencies": {
     "@biomejs/biome": "1.4.1",
     "@semantic-release/changelog": "^6.0.3",
