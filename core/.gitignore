@@ -1,0 +1,7 @@
+.npm
+.vscode/
+.swc/
+dist/
+build/
+node_modules/
+.idea/
