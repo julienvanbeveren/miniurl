@@ -15,15 +15,6 @@ export class RedisAdapter implements Adapter {
     this.prefix = options.prefix || "miniurl"
   }
 
-  private async getSecret() {
-    try {
-
-    } catch (err) {
-      console.error(err)
-      return false
-    }
-  }
-
   async setMiniUrl(key: string, url: string) {
     try {
       await this.client.set(`${this.prefix}:url:${key}`, url)
