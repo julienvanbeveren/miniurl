@@ -15,9 +15,18 @@ export class RedisAdapter implements Adapter {
     this.prefix = options.prefix || "miniurl"
   }
 
+  private async getSecret() {
+    try {
+
+    } catch (err) {
+      console.error(err)
+      return false
+    }
+  }
+
   async setMiniUrl(key: string, url: string) {
     try {
-      await this.client.set(`${this.prefix}:${key}:url`, url)
+      await this.client.set(`${this.prefix}:url:${key}`, url)
       return true
     } catch (err) {
       console.error(err)
@@ -27,7 +36,7 @@ export class RedisAdapter implements Adapter {
 
   async getMiniUrl(key: string) {
     try {
-      const url = await this.client.get(`${this.prefix}:${key}:url`)
+      const url = await this.client.get(`${this.prefix}:url:${key}`)
       return url || false
     } catch (err) {
       console.error(err)
@@ -37,7 +46,17 @@ export class RedisAdapter implements Adapter {
 
   async delMiniUrl(key: string) {
     try {
-      await this.client.get(`${this.prefix}:${key}:url`)
+      await this.client.get(`${this.prefix}:url:${key}`)
+      return true
+    } catch (err) {
+      console.error(err)
+      return false
+    }
+  }
+
+  async checkAuth(token: string) {
+    try {
+
       return true
     } catch (err) {
       console.error(err)
