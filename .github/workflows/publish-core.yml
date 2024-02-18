@@ -2,7 +2,7 @@ name: publish_core
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, next ]
     paths:
       - core/**
   workflow_dispatch:
