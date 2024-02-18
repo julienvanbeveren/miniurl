@@ -29,7 +29,7 @@
     "build": "swc ./src -d build",
     "build:watch": "swc ./src -d build -w",
     "type-check": "tsc --noEmit",
-    "release": "semantic-release",
+    "release": "semantic-release -e semantic-release-monorepo",
     "bundle": "unbuild",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watch --passWithNoTests",
