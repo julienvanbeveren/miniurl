@@ -7,6 +7,9 @@ on:
       - core/**
   workflow_dispatch:
 
+permissions:
+  content: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
