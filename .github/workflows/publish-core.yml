@@ -1,0 +1,29 @@
+name: publish_core
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - core/**
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 'core'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: install
+        run: npm install
+      - name: bundle 
+        run: npm run bundle
+      - name: release
+        uses: cycjimmy/semantic-release-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
